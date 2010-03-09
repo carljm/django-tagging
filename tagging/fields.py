@@ -117,3 +117,10 @@ class TagField(CharField):
         defaults = {'form_class': forms.TagField}
         defaults.update(kwargs)
         return super(TagField, self).formfield(**defaults)
+
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ["^tagging\.fields"])
+except ImportError:
+    pass
+
